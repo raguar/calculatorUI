@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!--Font Awesome-->
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+/>
+    <title>Ragu Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="grid-container">
+        <input type="text" placeholder="0" id="output">
+        <button class="btn" onclick="Clear()">CLR</button>
+        <button class="btn" onclick="del()">DEL</button>
+        <button class="btn" onclick="calc('%')">%</button>
+        <button class="btn" onclick="calc('/')">/</button>
+        <button class="btn" onclick="calc('7')">7</button>
+        <button class="btn" onclick="calc('8')">8</button>
+        <button class="btn" onclick="calc('9')">9</button>
+        <button class="btn" onclick="calc('*')">*</button>
+        <button class="btn" onclick="calc('4')">4</button>
+        <button class="btn" onclick="calc('5')">5</button>
+        <button class="btn" onclick="calc('6')">6</button>
+        <button class="btn" onclick="calc('-')">-</button>
+        <button class="btn" onclick="calc('1')">1</button>
+        <button class="btn" onclick="calc('2')">2</button>
+        <button class="btn" onclick="calc('3')">3</button>
+        <button class="btn" onclick="calc('+')">+</button>
+        <button class="btn" onclick="calc('.')">.</button>
+        <button class="btn" onclick="calc('0')">0</button>
+        <button class="btn btn-full" onclick="equal()"> = </button>
+    </div>
+    <script>
+        let output = document.getElementById('output');
+        
+        const calc = (num) => {
+            output.value += num;
+        }
+
+        const equal = () => {
+            try {
+                output.value = eval(output.value);
+            }
+            catch(err){
+                output.value = "INVALID"
+            }
+        }
+        
+        const Clear = () => {
+            output.value = "";
+        }
+
+        const del = () => {
+            output.value = output.value.slice(0,-1);
+        }
+
+        </script>
+</body>
+</html>
